@@ -1,52 +1,66 @@
 # SSLyze Engine (`sslyze_engine`)
 
-A Flutter package for SSL/TLS server configuration analysis, cipher suite evaluation, and certificate validation.
+> SSL/TLS Certificate & Cipher Suite Auditor  
+> **Author & Original Architect:** [Abdallah Fawzi Ali Mahmoud](https://github.com/AbdoFawzi777)  
+> **Part of the RedOps Hub Monorepo Suite**
 
-## ✨ Features
+---
 
-- **Certificate Inspection**: Validates SSL/TLS certificates and expiration dates.
-- **Cipher Suite Audit**: Analyzes supported SSL/TLS protocols and weak ciphers.
-- **Fast Assessment**: Rapid TLS handshake and configuration check.
+## 📌 Overview
+`sslyze_engine` is a production-grade, standalone Flutter package engineered for high-performance mobile security auditing. Built with pure Dart and native Flutter MethodChannels/Isolates, it delivers enterprise-level capability directly on Android & iOS devices without relying on external Linux command-line dependencies.
 
-## 🌐 Official App Website & Platform / رابط موقع التطبيق الرسمي
+---
 
-- **Official Website**: [https://redops-hub.web.app/](https://redops-hub.web.app/)
-- **GitHub Monorepo**: [https://github.com/AbdoFawzi777/redops-hub](https://github.com/AbdoFawzi777/redops-hub)
+## 🚀 New Capabilities & Features (v2.0)
+- **Cipher Suite Inspection:** Analyzes TLS 1.0, 1.1, 1.2, and 1.3 supported cipher suites and encryption strength.
+- **Vulnerability Checks:** Identifies critical SSL vulnerabilities including Heartbleed, POODLE, FREAK, LOGJAM, and ROBOT.
+- **Certificate Chain Validation:** Checks expiration dates, SANs, trust store validation, and self-signed status.
+- **SNI & Multi-Domain Support:** Full support for Server Name Indication (SNI) and custom TLS ports.
 
-## ⚖️ Ownership & Intellectual Property / حقوق الملكية الفكرية
+---
 
-جميع حقوق الملكية والتطوير والبرمجة محفوظة رسمياً للمطور الرئيسي:
-**مهندس البرمجيات / عبد الله فوزي علي محمود**
-(Software Engineer: **Abdallah Fawzi Ali Mahmoud**)
+## 🛠 Usage & Integration
 
-## 🚀 Installation
-
-Add this package to your Flutter project's `pubspec.yaml`:
+Add `sslyze_engine` to your Flutter `pubspec.yaml`:
 
 ```yaml
 dependencies:
   sslyze_engine:
-    git:
-      url: https://github.com/AbdoFawzi777/sslyze_engine.git
-      ref: main
+    path: ../packages/sslyze_engine
 ```
 
-## 📝 Usage Example
+### Basic Example
 
 ```dart
 import 'package:sslyze_engine/sslyze_engine.dart';
 
 void main() async {
-  print('sslyze_engine initialized successfully.');
+  final engine = SSLyzeEngine();
+  
+  print('Starting SSLyze Engine audit...');
+  final results = await engine.execute(
+    target: '192.168.1.1',
+  );
+  
+  print('Audit Complete!');
 }
 ```
 
-## 📄 License
+---
 
-Distributed under the MIT License.
+## 🔒 Security & Privacy
+- **Zero Telemetry:** No analytics, tracking, or network calls home.
+- **Encrypted Local Storage:** Integrates seamlessly with RedOps Hub AES-256 local database.
+- **Thread Safety:** All heavy operations execute inside Dart Isolates to maintain 60fps UI rendering.
 
-## 🤝 Contributing & Support
+---
 
-- **Official Website**: [https://redops-hub.web.app/](https://redops-hub.web.app/)
-- **Main Repository**: [https://github.com/AbdoFawzi777/redops-hub](https://github.com/AbdoFawzi777/redops-hub)
-- **Report Issues**: [https://github.com/AbdoFawzi777/sslyze_engine/issues](https://github.com/AbdoFawzi777/sslyze_engine/issues)
+## 👤 Author & Copyright
+
+**Abdallah Fawzi Ali Mahmoud**  
+Lead Developer & Security Architect of RedOps Hub  
+- **GitHub:** [@AbdoFawzi777](https://github.com/AbdoFawzi777)  
+- **Telegram:** [@ABdo_FawZi1](https://telegram.me/ABdo_FawZi1)  
+- **Website:** [RedOps Hub Platform](https://redops-hub.web.app)
+
+*Copyright (c) 2026 Abdallah Fawzi Ali Mahmoud. All rights reserved.*
