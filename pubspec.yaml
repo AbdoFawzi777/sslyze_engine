@@ -1,7 +1,9 @@
 ﻿name: sslyze_engine
-description: Fast SSL/TLS cryptographic configuration and certificate analyzer for Dart & Flutter. Inspired by SSLyze.
+description: SSL/TLS cryptographic configuration and X.509 certificate analyzer for Dart and Flutter.
 version: 2.0.0
-publish_to: none
+repository: https://github.com/AbdoFawzi777/sslyze_engine
+homepage: https://github.com/AbdoFawzi777/sslyze_engine
+issue_tracker: https://github.com/AbdoFawzi777/sslyze_engine/issues
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
@@ -13,7 +15,6 @@ dependencies:
   http: ^1.2.1
 
 dev_dependencies:
-  crypto: ^3.0.3
   flutter_test:
     sdk: flutter
   lints: ^3.0.0
