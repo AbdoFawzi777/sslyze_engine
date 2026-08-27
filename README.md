@@ -1,66 +1,93 @@
-# SSLyze Engine (`sslyze_engine`)
+<div align="center">
 
-> SSL/TLS Certificate & Cipher Suite Auditor  
-> **Author & Original Architect:** [Abdallah Fawzi Ali Mahmoud](https://github.com/AbdoFawzi777)  
-> **Part of the RedOps Hub Monorepo Suite**
+# 🔒 SSLyze Engine for Dart & Flutter
 
----
+**v2.0.0 — Sovereign On-Device Security Engine for Dart & Flutter**
 
-## 📌 Overview
-`sslyze_engine` is a production-grade, standalone Flutter package engineered for high-performance mobile security auditing. Built with pure Dart and native Flutter MethodChannels/Isolates, it delivers enterprise-level capability directly on Android & iOS devices without relying on external Linux command-line dependencies.
+[![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?logo=dart)](https://dart.dev)
+[![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter)](https://flutter.dev)
+[![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-2.0.0-E05555)](https://github.com/AbdoFawzi777/sslyze_engine/releases)
+[![RedOps Hub](https://img.shields.io/badge/Integrated_in-RedOps_Hub_v2.0-6C3AED)](https://github.com/AbdoFawzi777/redops-hub)
 
----
+*Part of the RedOps Hub Sovereign Mobile Security Suite.*
 
-## 🚀 New Capabilities & Features (v2.0)
-- **Cipher Suite Inspection:** Analyzes TLS 1.0, 1.1, 1.2, and 1.3 supported cipher suites and encryption strength.
-- **Vulnerability Checks:** Identifies critical SSL vulnerabilities including Heartbleed, POODLE, FREAK, LOGJAM, and ROBOT.
-- **Certificate Chain Validation:** Checks expiration dates, SANs, trust store validation, and self-signed status.
-- **SNI & Multi-Domain Support:** Full support for Server Name Indication (SNI) and custom TLS ports.
+</div>
 
 ---
 
-## 🛠 Usage & Integration
+## 📖 Overview
 
-Add `sslyze_engine` to your Flutter `pubspec.yaml`:
+`sslyze_engine` is a production-grade, 100% on-device Dart/Flutter package designed for mobile security auditing, defensive telemetry extraction, and penetration testing automation.
+
+> **🔒 Sovereignty Mandate:** All operations execute locally in memory and over direct socket/HTTP requests. Zero third-party telemetry, tracking, or cloud dependencies.
+
+---
+
+## ✨ Key Capabilities
+
+- 📜 **Certificate Validation**: Extracts Subject, Issuer CA, Expiry Dates, Subject Alternative Names (SAN), and key algorithms.
+- 🔐 **Protocol Version Verification**: Tests SSL 2.0/3.0, TLS 1.0, 1.1, 1.2, and modern TLS 1.3 handshakes.
+- ⚠️ **Weak Cipher Suite Detection**: Flags obsolete RC4, DES, 3DES, EXPORT, and NULL cipher suites.
+
+---
+
+## 📦 Installation
+
+Add `sslyze_engine` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
   sslyze_engine:
-    path: ../packages/sslyze_engine
+    git:
+      url: https://github.com/AbdoFawzi777/sslyze_engine.git
+      ref: main
 ```
 
-### Basic Example
+Or for local monorepo development:
+
+```yaml
+dependencies:
+  sslyze_engine:
+    path: packages/sslyze_engine
+```
+
+---
+
+## 🚀 Quick Start & Usage
 
 ```dart
 import 'package:sslyze_engine/sslyze_engine.dart';
 
 void main() async {
-  final engine = SSLyzeEngine();
-  
-  print('Starting SSLyze Engine audit...');
-  final results = await engine.execute(
-    target: '192.168.1.1',
-  );
-  
-  print('Audit Complete!');
+  final engine = SslyzeEngine();
+  await engine.initialize();
+
+  final result = await engine.analyze('example.com', port: 443);
+  print('TLS 1.3 Supported: ${result.supportsTls13}');
+  print('Cert Expires: ${result.certExpiry}');
 }
 ```
 
 ---
 
-## 🔒 Security & Privacy
-- **Zero Telemetry:** No analytics, tracking, or network calls home.
-- **Encrypted Local Storage:** Integrates seamlessly with RedOps Hub AES-256 local database.
-- **Thread Safety:** All heavy operations execute inside Dart Isolates to maintain 60fps UI rendering.
+## 🛡️ Anti-Fake Telemetry Integration
+
+`sslyze_engine` is built to interface directly with the **RedOps Hub Anti-Fake Verification Pipeline**. All returned data structures contain genuine socket/HTTP evidence objects, raw status headers, and timestamps, preventing synthetic or hallucinated results in downstream AI aggregators.
 
 ---
 
-## 👤 Author & Copyright
+## 📄 License & Legal Notice
 
-**Abdallah Fawzi Ali Mahmoud**  
-Lead Developer & Security Architect of RedOps Hub  
-- **GitHub:** [@AbdoFawzi777](https://github.com/AbdoFawzi777)  
-- **Telegram:** [@ABdo_FawZi1](https://telegram.me/ABdo_FawZi1)  
-- **Website:** [RedOps Hub Platform](https://redops-hub.web.app)
+> **⚠️ Legal Notice:** This tool is designed exclusively for authorized penetration testing, security auditing, and educational research. Always obtain explicit written authorization before scanning target infrastructure.
 
-*Copyright (c) 2026 Abdallah Fawzi Ali Mahmoud. All rights reserved.*
+Distributed under the **MIT License**. Copyright (c) 2026 **Eng. Abdallah Fawzi Ali Mahmoud**.
+
+---
+
+<div align="center">
+
+Maintained by **[Abdallah Fawzi Ali Mahmoud](https://github.com/AbdoFawzi777)**  
+[Official Platform](https://redops-hub.web.app/) · [RedOps Hub Monorepo](https://github.com/AbdoFawzi777/redops-hub)
+
+</div>

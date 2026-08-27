@@ -1,17 +1,20 @@
-name: sslyze_engine
-description: A modular simulation engine for RedOps Hub.
-version: 1.0.0
+﻿name: sslyze_engine
+description: Fast SSL/TLS cryptographic configuration and certificate analyzer for Dart & Flutter. Inspired by SSLyze.
+version: 2.0.0
 publish_to: none
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
+  crypto: ^3.0.3
   flutter:
     sdk: flutter
   http: ^1.2.1
 
 dev_dependencies:
+  crypto: ^3.0.3
   flutter_test:
     sdk: flutter
   lints: ^3.0.0
+
